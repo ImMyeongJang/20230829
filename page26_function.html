@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 함수유형
+        // 1. 매개변수x 반환값x
+        // 2. 매개변수o 반환값x
+        // 3. 매개변수 반환값
+        // 4. 매개변수 반환값
+
+        //1.
+        function go(){
+            alert('구글로 갑니다~~');
+            location.href='http://www.google.com';
+        }
+        function gowhere(url){
+            alert(url+'로 갑니다~!');
+            location.href=url;
+        }
+        function question(){
+            let url=prompt('어디로 갈까요','http://naver.com');
+            gowhere(url);
+        }
+        function show(){ // 3. 반환값이 있는 함수 : 함수 블럭 마지막에 return문을 작성한다
+            console.log('show() 호출됨...');
+            return "★★★★★★★";
+            //show()함수를 호출한 쪽으로 ★★★★★★★ 을 돌려준다
+        }
+        //4.매개변수 2개를 받아서 나누기 수행, 나눈 결과값을 반환하는 함수를 구성해보자
+        //함수명:divide
+        function divide(a,b){
+            let result=a/b;
+            document.write(`${a}/${b}=${result}<br>>`);
+            return result;
+        }        
+
+        show();
+        //반환값이 있는 함수를 호출할 때는 반환할 받아줄 변수를 선언하자
+        let star=show();
+        alert(star);
+        divide(10,2);
+        let ex=divide(9,3);
+        document.write('<h3>'+ex+"</h3>");
+        document.write(2**ex+"<br>");
+
+    </script>
+</head>
+<body>
+    <!-- 1. -->
+    <a href="javascript:go()">go go</a>
+    <button onclick="let url=prompt('어디 URL로 갈까요?');gowhere(url);">go where</button>
+    <button onclick="question()">Go where</button>
+</body>
+</html>

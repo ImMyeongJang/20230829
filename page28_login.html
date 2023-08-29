@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .입장성공{
+            color:yellow
+        }
+        .입장실패{
+            color:red
+        }
+    </style>
+    <script>
+        let uid="";
+        let upw='';
+        const login=function(){
+            //uid, pwd 입력값을 받아와서
+            uid=document.getElementById('uid').value;
+            upw=document.getElementById('upw').value;
+            //alert(uid+upw);
+            if(uid==''){
+                alert('입력해주세요');
+                return;//아래부분의 코드르 수행하지않고 되돌아간다
+            }
+            //uid가 'root', 'upw'='1234' 둘다 맞으면 'root님 환영합니다' 그린색
+            //둘중하나라도 틀리면 "id또는 비밀번호가 일치하지 않습니다." 레드로 출력.
+            let obj=document.getElementById('result');
+            if(uid=='root'&&upw=='1234'){
+                obj.innerHTML=`<h2 class="입장성공">${uid}님 환영합니다~!@</h2>`;
+            }else{
+                obj.innerHTML=`<h2 class="입장실패">아이디 비밀번호가 틀려요~!@</h2>`;
+            }
+
+            console.log('uid:','upw');
+        }
+    </script>
+</head>
+<body>
+    <h1>로그인</h1>
+    아이디: <input type="text" name="userid" id="uid"><br><Br>
+    비밀번호: <input type="password" name="userpw" id="upw"><br><Br>
+    <button button onclick="login();">Login</button>
+    <hr color="red">
+    <div id="result">
+       
+    </div>
+</body>
+</html>

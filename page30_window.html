@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #circle{
+            width:100px;
+            height: 100px;
+            background-color: magenta;
+            border-radius: 50%;
+            /* display: none; 해당 영역도 사라진다 */
+            /* visibility: hidden; 영역에는 잇는데 사라져보임 */
+            /* opacity: 0; 투명으로 한다 영역에는 이음 */
+        }
+    </style>
+    <script>
+        let obj;
+        let flag=1;
+        window.onload=function(){ //윈도우가 모두 로드된 후에 익명함수를 실행하란 의미
+        //id가 circle인 div요소를 obj할당해보세요
+        let obj=document.getElementById('circle');}
+       
+      function show(){
+        // #circle을 등장시키기 display:none =>> display:block
+        // 자바스크립트에서 css를 제어하기 위해서는 dom 객체들의 style 속성을 이해해야함
+        if(flag==1){
+            obj.style.display='block';
+            obj.style.backgroundColor="lime";
+            flag-=1;
+        }else{
+        obj.style.display='none';
+        flag+=1;
+      }
+    }
+    //setTimeout(함수, 밀리초)
+    //밀리초 이후에 함수를 실행한다
+    function alarm(){
+        alert('꽝!!')
+    }
+    let wid=null;
+    function change(){
+        //3초 뒤에 '꽝!!'
+        //wid=window.setTimeout(alram,3000); 3초 1/1000단위
+        //2초 뒤에 #circle의 배경색을 변경해보세요
+        wid=window.setTimeout(function(){
+            obj.style.backgroundColor='skyblue'},1000)
+        }
+    
+    function clearTime(){
+        if(wid!=null){
+            clearTimeout(wid);
+            wid=null;
+    }
+}
+    </script>
+</head>
+<body>
+    <h1>window 객체의 setTimeout() / clearTimeout() 활용</h1>
+    <button onclick="show()">Change Color</button>
+    <button onclick="change()">Click me</button>
+    <button onclick="clearTime()">타임아웃 해제</button>
+    
+    <hr color="blue">
+    <div id="circle">
+
+    </div>
+    <hr color="red">
+</body>
+</html>
